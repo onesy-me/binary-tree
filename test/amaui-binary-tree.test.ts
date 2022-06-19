@@ -1,18 +1,11 @@
 /* tslint:disable: no-shadowed-variable */
 import { assert } from '@amaui/test';
 
-import { startBrowsers, IBrowsers, evaluate, closeBrowsers } from '../utils/js/test/utils';
+import { evaluate } from '../utils/js/test/utils';
 
 import { AmauiBinaryTree, AmauiNode } from '../src';
 
 group('@amaui/binary-tree', () => {
-  let browsers: IBrowsers;
-
-  pre(async () => browsers = await startBrowsers());
-
-  post(async () => {
-    await closeBrowsers(browsers);
-  });
 
   to('AmauiNode', async () => {
     const value = new AmauiNode('a', new AmauiNode(1), new AmauiNode(4));
@@ -21,7 +14,7 @@ group('@amaui/binary-tree', () => {
       const value = new window.AmauiBinaryTree.AmauiNode('a', new window.AmauiBinaryTree.AmauiNode(1), new window.AmauiBinaryTree.AmauiNode(4));
 
       return [value.value, value.left.value, value.right.value];
-    }, { browsers });
+    });
     const valueNode = [value.value, value.left.value, value.right.value];
     const values = [valueNode, ...valueBrowsers];
 
@@ -37,7 +30,7 @@ group('@amaui/binary-tree', () => {
         const value = window.AmauiBinaryTree.AmauiBinaryTree.make([4, 1, 7, 3, 5, 4, 7]);
 
         return value.array();
-      }, { browsers });
+      });
       const valueNode = value.array();
       const values = [valueNode, ...valueBrowsers];
 
@@ -54,7 +47,7 @@ group('@amaui/binary-tree', () => {
           window.AmauiBinaryTree.AmauiBinaryTree.lowestCommonAncestor(1, 7, value.root).value,
           window.AmauiBinaryTree.AmauiBinaryTree.lowestCommonAncestor(1, 14, value.root),
         ];
-      }, { browsers });
+      });
       const valueNode = [
         AmauiBinaryTree.lowestCommonAncestor(1, 7, value.root).value,
         AmauiBinaryTree.lowestCommonAncestor(1, 14, value.root),
@@ -78,7 +71,7 @@ group('@amaui/binary-tree', () => {
           window.AmauiBinaryTree.AmauiBinaryTree.maxDepth(value.root.left.left),
           window.AmauiBinaryTree.AmauiBinaryTree.maxDepth(value.root.left.right),
         ];
-      }, { browsers });
+      });
       const valueNode = [
         AmauiBinaryTree.maxDepth(value.root),
         AmauiBinaryTree.maxDepth(value.root.left.left),
@@ -115,7 +108,7 @@ group('@amaui/binary-tree', () => {
           window.AmauiBinaryTree.AmauiBinaryTree.valid(value),
           window.AmauiBinaryTree.AmauiBinaryTree.valid(value1),
         ];
-      }, { browsers });
+      });
       const valueNode = [
         AmauiBinaryTree.valid(value),
         AmauiBinaryTree.valid(value1),
@@ -143,7 +136,7 @@ group('@amaui/binary-tree', () => {
         window.AmauiBinaryTree.AmauiBinaryTree.preorder(value.root, item => array.push(item.value));
 
         return array;
-      }, { browsers });
+      });
       const valueNode = array;
       const values = [valueNode, ...valueBrowsers];
 
@@ -165,7 +158,7 @@ group('@amaui/binary-tree', () => {
         window.AmauiBinaryTree.AmauiBinaryTree.inorder(value.root, item => array.push(item.value));
 
         return array;
-      }, { browsers });
+      });
       const valueNode = array;
       const values = [valueNode, ...valueBrowsers];
 
@@ -187,7 +180,7 @@ group('@amaui/binary-tree', () => {
         window.AmauiBinaryTree.AmauiBinaryTree.postorder(value.root, item => array.push(item.value));
 
         return array;
-      }, { browsers });
+      });
       const valueNode = array;
       const values = [valueNode, ...valueBrowsers];
 
@@ -206,7 +199,7 @@ group('@amaui/binary-tree', () => {
           window.AmauiBinaryTree.AmauiBinaryTree.min(value.root.left.left),
           window.AmauiBinaryTree.AmauiBinaryTree.min(value.root.right).value,
         ];
-      }, { browsers });
+      });
       const valueNode = [
         AmauiBinaryTree.min(value.root).value,
         AmauiBinaryTree.min(value.root.left).value,
@@ -235,7 +228,7 @@ group('@amaui/binary-tree', () => {
           window.AmauiBinaryTree.AmauiBinaryTree.max(value.root.right.right),
           window.AmauiBinaryTree.AmauiBinaryTree.max(value.root.right).value,
         ];
-      }, { browsers });
+      });
       const valueNode = [
         AmauiBinaryTree.max(value.root).value,
         AmauiBinaryTree.max(value.root.left).value,
@@ -263,7 +256,7 @@ group('@amaui/binary-tree', () => {
         const value = new window.AmauiBinaryTree.AmauiBinaryTree().make([4, 1, 7, 3, 5, 4, 7]);
 
         return value.array();
-      }, { browsers });
+      });
       const valueNode = value.array();
       const values = [valueNode, ...valueBrowsers];
 
@@ -279,7 +272,7 @@ group('@amaui/binary-tree', () => {
           const value = window.AmauiBinaryTree.AmauiBinaryTree.make([4, 1, 7, 3, 5, 4, 7]);
 
           return value.array();
-        }, { browsers });
+        });
         const valueNode = value.array();
         const values = [valueNode, ...valueBrowsers];
 
@@ -293,7 +286,7 @@ group('@amaui/binary-tree', () => {
           const value = window.AmauiBinaryTree.AmauiBinaryTree.make([4, 1, 7, 3, 5, 4, 7]);
 
           return value.array('preorder');
-        }, { browsers });
+        });
         const valueNode = value.array('preorder');
         const values = [valueNode, ...valueBrowsers];
 
@@ -307,7 +300,7 @@ group('@amaui/binary-tree', () => {
           const value = window.AmauiBinaryTree.AmauiBinaryTree.make([4, 1, 7, 3, 5, 4, 7]);
 
           return value.array('inorder');
-        }, { browsers });
+        });
         const valueNode = value.array('inorder');
         const values = [valueNode, ...valueBrowsers];
 
@@ -321,7 +314,7 @@ group('@amaui/binary-tree', () => {
           const value = window.AmauiBinaryTree.AmauiBinaryTree.make([4, 1, 7, 3, 5, 4, 7]);
 
           return value.array('postorder');
-        }, { browsers });
+        });
         const valueNode = value.array('postorder');
         const values = [valueNode, ...valueBrowsers];
 
@@ -345,7 +338,7 @@ group('@amaui/binary-tree', () => {
         value.add(new window.AmauiBinaryTree.AmauiNode(40));
 
         return value.array();
-      }, { browsers });
+      });
       const valueNode = value.array();
       const values = [valueNode, ...valueBrowsers];
 
@@ -359,7 +352,7 @@ group('@amaui/binary-tree', () => {
         const value = window.AmauiBinaryTree.AmauiBinaryTree.make([4, 1, 7, 3, 5, 4, 7]);
 
         return [value.find(4).value, value.find(1).value, value.find(14)];
-      }, { browsers });
+      });
       const valueNode = [value.find(4).value, value.find(1).value, value.find(14)];
       const values = [valueNode, ...valueBrowsers];
 
@@ -379,7 +372,7 @@ group('@amaui/binary-tree', () => {
         value.remove(5);
 
         return value.array();
-      }, { browsers });
+      });
       const valueNode = value.array();
       const values = [valueNode, ...valueBrowsers];
 
@@ -401,7 +394,7 @@ group('@amaui/binary-tree', () => {
         value.removeNode(value.root, 5);
 
         return value.array();
-      }, { browsers });
+      });
       const valueNode = value.array();
       const values = [valueNode, ...valueBrowsers];
 
