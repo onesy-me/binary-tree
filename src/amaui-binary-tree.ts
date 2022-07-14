@@ -1,4 +1,4 @@
-import { is } from '@amaui/utils';
+import is from '@amaui/utils/is';
 import { TMethod } from '@amaui/models';
 
 export type TArrayVariant = 'inorder' | 'preorder' | 'postorder';
