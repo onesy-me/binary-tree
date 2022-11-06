@@ -3,7 +3,7 @@
   "version": "1.0.11111",
   "description": "Binary tree",
   "repository": "https://github.com/amaui-org/amaui-binary-tree.git",
-  "author": "Lazar <lazareric.com@gmail.com>",
+  "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
   "main": "./src/index.ts",
