@@ -25,11 +25,11 @@
 </h3>
 
 <p align='center'>
-    <sub>Very simple code&nbsp;&nbsp;&nbsp;&nbsp;</sub>
-    <sub>Modern code&nbsp;&nbsp;&nbsp;&nbsp;</sub>
-    <sub>Junior friendly&nbsp;&nbsp;&nbsp;&nbsp;</sub>
-    <sub>Typescript&nbsp;&nbsp;&nbsp;&nbsp;</sub>
-    <sub>Made with :yellow_heart:</sub>
+  <sub>Very simple code&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+  <sub>Modern code&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+  <sub>Junior friendly&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+  <sub>Typescript&nbsp;&nbsp;&nbsp;&nbsp;</sub>
+  <sub>Made with :yellow_heart:</sub>
 </p>
 
 <br />
@@ -45,6 +45,12 @@
   // npm
   npm install @amaui/binary-tree
 ```
+
+### Use cases
+- Min/max heaps
+- Huffman coding, data compression
+- Machine learning, making decisions
+- etc.
 
 ### Use
 
