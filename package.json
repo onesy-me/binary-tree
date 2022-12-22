@@ -1,6 +1,6 @@
 {
-  "name": "@amaui/amaui-binary-tree",
-  "version": "1.0.11111",
+  "name": "@amaui/binary-tree",
+  "version": "1.0.0",
   "description": "Binary tree",
   "repository": "https://github.com/amaui-org/amaui-binary-tree.git",
   "author": "Lazar <lazareric2@gmail.com>",
