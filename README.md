@@ -4,11 +4,11 @@
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
-    <img src='utils/images/logo.svg' alt='AMAUI logo' />
+    <img src='utils/images/logo.svg' alt='amaui logo' />
   </a>
 </p>
 
-<h1 align='center'>AMAUI Binary Tree</h1>
+<h1 align='center'>amaui Binary Tree</h1>
 
 <p align='center'>
   Binary Tree
