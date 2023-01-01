@@ -107,7 +107,3 @@ Build
 ```sh
   yarn build
 ```
-
-### Docs
-
-Might be soon...
