@@ -39,11 +39,7 @@
 ### Add
 
 ```sh
-  // yarn
   yarn add @amaui/binary-tree
-
-  // npm
-  npm install @amaui/binary-tree
 ```
 
 ### Use cases
