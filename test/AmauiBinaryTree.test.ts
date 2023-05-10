@@ -5,7 +5,7 @@ import { evaluate } from '../utils/js/test/utils';
 
 import { AmauiBinaryTree, AmauiNode } from '../src';
 
-group('@amaui/binary-tree', () => {
+group('AmauiBinaryTree', () => {
 
   to('AmauiNode', async () => {
     const value = new AmauiNode('a', new AmauiNode(1), new AmauiNode(4));

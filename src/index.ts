@@ -1,1 +1,1 @@
-export * from './amaui-binary-tree';
+export * from './AmauiBinaryTree';
