@@ -1,47 +1,47 @@
-import is from '@amaui/utils/is';
-import { TMethod } from '@amaui/models';
+import is from '@onesy/utils/is';
+import { TMethod } from '@onesy/models';
 
 export type TArrayVariant = 'inorder' | 'preorder' | 'postorder';
 
-export interface IAmauiNode {
+export interface IOnesyNode {
   value: any;
-  left?: AmauiNode;
-  right?: AmauiNode;
+  left?: OnesyNode;
+  right?: OnesyNode;
 
   [p: string]: any;
 }
 
-export class AmauiNode implements IAmauiNode {
+export class OnesyNode implements IOnesyNode {
   [p: string]: any;
 
   public constructor(
     public value: any,
-    public left?: AmauiNode,
-    public right?: AmauiNode
+    public left?: OnesyNode,
+    public right?: OnesyNode
   ) { }
 }
 
-export interface IAmauiBinaryTree {
-  root?: AmauiNode;
+export interface IOnesyBinaryTree {
+  root?: OnesyNode;
 }
 
-export class AmauiBinaryTree implements IAmauiBinaryTree {
-  public root: AmauiNode;
+export class OnesyBinaryTree implements IOnesyBinaryTree {
+  public root: OnesyNode;
 
-  public static make(value: any[]): AmauiBinaryTree { return new AmauiBinaryTree().make(value); }
+  public static make(value: any[]): OnesyBinaryTree { return new OnesyBinaryTree().make(value); }
 
-  public static lowestCommonAncestor(value: AmauiNode | any, value1: AmauiNode | any, root: AmauiNode): AmauiNode | undefined {
-    let lca: AmauiNode;
+  public static lowestCommonAncestor(value: OnesyNode | any, value1: OnesyNode | any, root: OnesyNode): OnesyNode | undefined {
+    let lca: OnesyNode;
 
-    const lowestCommonAncestorMethod = (amauiNode: AmauiNode) => {
-      if (!amauiNode) return;
+    const lowestCommonAncestorMethod = (onesyNode: OnesyNode) => {
+      if (!onesyNode) return;
 
-      const mid = amauiNode.value === (value instanceof AmauiNode ? value.value : value) || amauiNode.value === (value1 instanceof AmauiNode ? value1.value : value1);
+      const mid = onesyNode.value === (value instanceof OnesyNode ? value.value : value) || onesyNode.value === (value1 instanceof OnesyNode ? value1.value : value1);
 
-      const left = lowestCommonAncestorMethod(amauiNode.left);
-      const right = lowestCommonAncestorMethod(amauiNode.right);
+      const left = lowestCommonAncestorMethod(onesyNode.left);
+      const right = lowestCommonAncestorMethod(onesyNode.right);
 
-      if (mid && left || mid && right || left && right) lca = amauiNode;
+      if (mid && left || mid && right || left && right) lca = onesyNode;
 
       return left || right || mid;
     };
@@ -51,29 +51,29 @@ export class AmauiBinaryTree implements IAmauiBinaryTree {
     return lca;
   }
 
-  public static maxDepth(amauiNode: AmauiNode): number {
-    const maxDepthMethod = (value: AmauiNode): number => {
+  public static maxDepth(onesyNode: OnesyNode): number {
+    const maxDepthMethod = (value: OnesyNode): number => {
       if (value === undefined) return 0;
 
       return Math.max(1 + maxDepthMethod(value.left), 1 + maxDepthMethod(value.right));
     };
 
-    return maxDepthMethod(amauiNode);
+    return maxDepthMethod(onesyNode);
   }
 
-  public static valid(value: AmauiBinaryTree): boolean {
-    const isValid = (amauiNode: AmauiNode): boolean => {
-      if (amauiNode === undefined) return true;
-      if (amauiNode.left?.value >= amauiNode.value) return false;
-      if (amauiNode.right?.value <= amauiNode.value) return false;
+  public static valid(value: OnesyBinaryTree): boolean {
+    const isValid = (onesyNode: OnesyNode): boolean => {
+      if (onesyNode === undefined) return true;
+      if (onesyNode.left?.value >= onesyNode.value) return false;
+      if (onesyNode.right?.value <= onesyNode.value) return false;
 
-      return isValid(amauiNode.left) && isValid(amauiNode.right);
+      return isValid(onesyNode.left) && isValid(onesyNode.right);
     };
 
     return isValid(value.root);
   }
 
-  public static preorder(value: AmauiNode, method: TMethod): void {
+  public static preorder(value: OnesyNode, method: TMethod): void {
     if (value !== undefined && is('function', method)) {
       method(value, value.left, value.right);
 
@@ -82,7 +82,7 @@ export class AmauiBinaryTree implements IAmauiBinaryTree {
     }
   }
 
-  public static inorder(value: AmauiNode, method: TMethod): void {
+  public static inorder(value: OnesyNode, method: TMethod): void {
     if (value !== undefined && is('function', method)) {
       this.inorder(value.left, method);
 
@@ -92,7 +92,7 @@ export class AmauiBinaryTree implements IAmauiBinaryTree {
     }
   }
 
-  public static postorder(value: AmauiNode, method: TMethod): void {
+  public static postorder(value: OnesyNode, method: TMethod): void {
     if (value !== undefined && is('function', method)) {
       this.postorder(value.left, method);
       this.postorder(value.right, method);
@@ -101,41 +101,41 @@ export class AmauiBinaryTree implements IAmauiBinaryTree {
     }
   }
 
-  public static min(value: AmauiNode): AmauiNode {
-    let amauiNode: AmauiNode = value;
+  public static min(value: OnesyNode): OnesyNode {
+    let onesyNode: OnesyNode = value;
 
-    while (amauiNode?.left !== undefined) amauiNode = amauiNode.left;
+    while (onesyNode?.left !== undefined) onesyNode = onesyNode.left;
 
-    return amauiNode;
+    return onesyNode;
   }
 
-  public static max(value: AmauiNode): AmauiNode {
-    let amauiNode: AmauiNode = value;
+  public static max(value: OnesyNode): OnesyNode {
+    let onesyNode: OnesyNode = value;
 
-    while (amauiNode?.right !== undefined) amauiNode = amauiNode.right;
+    while (onesyNode?.right !== undefined) onesyNode = onesyNode.right;
 
-    return amauiNode;
+    return onesyNode;
   }
 
   public array(variant: TArrayVariant = 'preorder'): Array<any> {
     const value = [];
 
-    if (AmauiBinaryTree[variant]) AmauiBinaryTree[variant](this.root, (amauiNode: AmauiNode) => value.push(amauiNode.value));
+    if (OnesyBinaryTree[variant]) OnesyBinaryTree[variant](this.root, (onesyNode: OnesyNode) => value.push(onesyNode.value));
 
     return value;
   }
 
-  public make(value: any[]): AmauiBinaryTree {
+  public make(value: any[]): OnesyBinaryTree {
     if (is('array', value)) value.forEach(item => this.add(item));
 
     return this;
   }
 
-  public add(value: AmauiNode | any): AmauiBinaryTree {
-    const amauiNode = value instanceof AmauiNode ? value : new AmauiNode(value);
+  public add(value: OnesyNode | any): OnesyBinaryTree {
+    const onesyNode = value instanceof OnesyNode ? value : new OnesyNode(value);
 
     if (!this.root) {
-      this.root = amauiNode;
+      this.root = onesyNode;
 
       return this;
     }
@@ -143,12 +143,12 @@ export class AmauiBinaryTree implements IAmauiBinaryTree {
     let atmNode = this.root;
 
     while (atmNode) {
-      if (amauiNode.value === atmNode.value) return this;
+      if (onesyNode.value === atmNode.value) return this;
 
       // Left
-      if (amauiNode.value < atmNode.value) {
+      if (onesyNode.value < atmNode.value) {
         if (atmNode.left === undefined) {
-          atmNode.left = amauiNode;
+          atmNode.left = onesyNode;
 
           return this;
         }
@@ -157,9 +157,9 @@ export class AmauiBinaryTree implements IAmauiBinaryTree {
       }
 
       // Right
-      if (amauiNode.value > atmNode.value) {
+      if (onesyNode.value > atmNode.value) {
         if (atmNode.right === undefined) {
-          atmNode.right = amauiNode;
+          atmNode.right = onesyNode;
 
           return this;
         }
@@ -169,53 +169,53 @@ export class AmauiBinaryTree implements IAmauiBinaryTree {
     }
   }
 
-  public find(value: any): AmauiNode | undefined {
+  public find(value: any): OnesyNode | undefined {
     if (!this.root) return;
 
     let atmNode = this.root;
-    let amauiNode: AmauiNode;
+    let onesyNode: OnesyNode;
 
-    while (atmNode && !amauiNode) {
+    while (atmNode && !onesyNode) {
       if (value < atmNode.value) atmNode = atmNode.left;
       else if (value > atmNode.value) atmNode = atmNode.right;
-      else amauiNode = atmNode;
+      else onesyNode = atmNode;
     }
 
-    return amauiNode;
+    return onesyNode;
   }
 
   public remove(value: any): void {
     this.root = this.removeNode(this.root, value);
   }
 
-  public removeNode(amauiNode: AmauiNode, value: any): AmauiNode | undefined {
-    if (amauiNode === undefined) return;
+  public removeNode(onesyNode: OnesyNode, value: any): OnesyNode | undefined {
+    if (onesyNode === undefined) return;
 
-    if (value === amauiNode.value) {
-      if (amauiNode.left === undefined && amauiNode.right === undefined) return;
+    if (value === onesyNode.value) {
+      if (onesyNode.left === undefined && onesyNode.right === undefined) return;
 
-      if (amauiNode.left === undefined) return amauiNode.right;
+      if (onesyNode.left === undefined) return onesyNode.right;
 
-      if (amauiNode.right === undefined) return amauiNode.left;
+      if (onesyNode.right === undefined) return onesyNode.left;
 
-      const atmNode = AmauiBinaryTree.min(amauiNode.right);
+      const atmNode = OnesyBinaryTree.min(onesyNode.right);
 
-      amauiNode.value = atmNode.value;
+      onesyNode.value = atmNode.value;
 
-      amauiNode.right = this.removeNode(amauiNode.right, atmNode.value);
+      onesyNode.right = this.removeNode(onesyNode.right, atmNode.value);
 
-      return amauiNode;
+      return onesyNode;
     }
 
-    if (value < amauiNode.value) {
-      amauiNode.left = this.removeNode(amauiNode.left, value);
+    if (value < onesyNode.value) {
+      onesyNode.left = this.removeNode(onesyNode.left, value);
 
-      return amauiNode;
+      return onesyNode;
     }
 
-    amauiNode.right = this.removeNode(amauiNode.right, value);
+    onesyNode.right = this.removeNode(onesyNode.right, value);
 
-    return amauiNode;
+    return onesyNode;
   }
 
 }

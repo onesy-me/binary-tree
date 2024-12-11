@@ -1,1 +1,1 @@
-export * from './AmauiBinaryTree';
+export * from './OnesyBinaryTree';

@@ -4,11 +4,11 @@
 
 <p align='center'>
   <a target='_blank' rel='noopener noreferrer' href='#'>
-    <img src='utils/images/logo.svg' alt='amaui logo' />
+    <img src='utils/images/logo.svg' alt='onesy logo' />
   </a>
 </p>
 
-<h1 align='center'>amaui Binary Tree</h1>
+<h1 align='center'>onesy Binary Tree</h1>
 
 <p align='center'>
   Binary Tree
@@ -39,7 +39,7 @@
 ### Add
 
 ```sh
-yarn add @amaui/binary-tree
+yarn add @onesy/binary-tree
 ```
 
 ### Use cases
@@ -51,16 +51,16 @@ yarn add @amaui/binary-tree
 ### Use
 
 ```javascript
-  import { AmauiBinaryTree } from '@amaui/binary-tree';
+  import { OnesyBinaryTree } from '@onesy/binary-tree';
 
   // Make a new binary tree instance
-  const amauiBinaryTree = new AmauiBinaryTree();
+  const onesyBinaryTree = new OnesyBinaryTree();
 
-  // Add a amaui node / value
-  [4, 2, 7, 14, 1, 3, 5].map(value => amauiBinaryTree.add(value));
+  // Add a onesy node / value
+  [4, 2, 7, 14, 1, 3, 5].map(value => onesyBinaryTree.add(value));
 
   // or use a make method or a static method
-  amauiBinaryTree.make([4, 2, 7, 14, 1, 3, 5]);
+  onesyBinaryTree.make([4, 2, 7, 14, 1, 3, 5]);
 
   // Binary tree
          4
@@ -71,7 +71,7 @@ yarn add @amaui/binary-tree
    1   3   5   14
 
   // Remove any value
-  amauiBinaryTree.remove(2);
+  onesyBinaryTree.remove(2);
 
   // Binary tree
          4
