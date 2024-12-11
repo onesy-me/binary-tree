@@ -2,7 +2,7 @@
   "name": "@onesy/binary-tree",
   "version": "1.0.0",
   "description": "Binary tree",
-  "repository": "https://github.com/onesy-org/onesy-binary-tree.git",
+  "repository": "https://github.com/onesy-me/binary-tree.git",
   "author": "Lazar <lazareric2@gmail.com>",
   "license": "MIT",
   "private": false,
